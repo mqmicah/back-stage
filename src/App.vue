@@ -5,5 +5,8 @@
 </template>
 
 <style lang="less">
-
+  @import url('~as/css/normalize.css');
+  #app{
+    height: 100%;
+  }
 </style>

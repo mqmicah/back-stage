@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
     devServer: {
-        open: true
+        open: true,
+        port: 8081
     },
     chainWebpack: config => {
         config.resolve.alias
