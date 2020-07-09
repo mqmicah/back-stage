@@ -6,6 +6,7 @@
 
 <style lang="less">
   @import url('~as/css/normalize.css');
+  @import url('~as/css/index.css');
   #app{
     height: 100%;
   }

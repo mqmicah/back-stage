@@ -10,5 +10,6 @@ module.exports = {
             .set('cp', path.resolve(__dirname, './src/components'))
             .set('as', path.resolve(__dirname, './src/assets'))
             .set('page', path.resolve(__dirname, './src/views'))
+            .set('sr', path.resolve(__dirname, './src'))
     }
 }

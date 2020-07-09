@@ -9,6 +9,11 @@ const Login = () =>
 const Home = () =>
     import ('page/home/Home')
 
+const WeLC = () =>
+    import ('page/aside/welcome/welCome')
+
+const User = () =>
+    import ('page/aside/user/User')
 
 
 const routes = [{
@@ -16,12 +21,20 @@ const routes = [{
         redirect: '/login'
     },
     {
-        path: '/home',
-        component: Home
-    },
-    {
         path: '/login',
         component: Login
+    },
+    {
+        path: '/home',
+        component: Home,
+        redirect: '/welcome',
+        children: [{
+            path: '/welcome',
+            component: WeLC
+        }, {
+            path: '/users',
+            component: User
+        }]
     }
 ]
 
@@ -41,5 +54,11 @@ router.beforeEach((to, from, next) => {
     }
     next();
 })
+
+//解决双击路由时会报错（路由冗余）
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch(err => err)
+}
 
 export default router
