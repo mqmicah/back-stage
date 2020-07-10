@@ -15,6 +15,11 @@ const WeLC = () =>
 const User = () =>
     import ('page/aside/user/User')
 
+const Power = () =>
+    import ('page/aside/power/Power')
+
+const Roles = () =>
+    import ('page/aside/roles/Roles')
 
 const routes = [{
         path: '/',
@@ -29,12 +34,20 @@ const routes = [{
         component: Home,
         redirect: '/welcome',
         children: [{
-            path: '/welcome',
-            component: WeLC
-        }, {
-            path: '/users',
-            component: User
-        }]
+                path: '/welcome',
+                component: WeLC
+            }, {
+                path: '/users',
+                component: User
+            }, {
+                path: '/rights',
+                component: Power
+            },
+            {
+                path: '/roles',
+                component: Roles
+            }
+        ]
     }
 ]
 

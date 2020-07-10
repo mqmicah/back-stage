@@ -5,7 +5,7 @@
         <i class='el-icon-s-fold' v-else></i>
     </div>
     <el-menu
-      default-active="2"
+      :default-active="getIndex"
       background-color="#333"
       text-color="#fff"
       active-text-color="#ffd04b"
@@ -19,7 +19,7 @@
           <i :class="iconObj[val.id]"></i>
           <span>{{val.authName}}</span>
         </template>
-        <el-menu-item :index="'/'+item.path + ''" v-for="item in val.children" :key="item.id">
+        <el-menu-item :index="'/'+item.path + ''" v-for="item in val.children" :key="item.id"  @click="setIndex('/'+item.path)">
           <i class="el-icon-menu"></i>
           {{item.authName}}
         </el-menu-item>
@@ -39,7 +39,8 @@ export default {
         "102": "el-icon-message",
         "145": "el-icon-s-data"
       },
-      isCollapse: false
+      isCollapse: false,
+      getIndex:''
     };
   },
   methods: {
@@ -54,10 +55,14 @@ export default {
     rarClick() {
         this.isCollapse=!this.isCollapse
         this.$emit('rarClick',this.isCollapse)
+    },
+    setIndex(index) {
+        window.sessionStorage.setItem('current',index);
     }
   },
   created() {
     this.getAsides();
+    this.getIndex=window.sessionStorage.getItem('current')
   }
 };
 </script>
