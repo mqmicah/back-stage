@@ -21,13 +21,15 @@ export default {
 <style lang="less" scoped>
 .login-container {
   position: relative;
-  background-color: #2b4b6b;
+  background-color: #fff;
   height: 100%;
   .login-box {
     width: 450px;
     height: 350px;
     background-color: #fff;
     position: absolute;
+    border: 1px solid #ccc;
+    box-shadow: 0 10px 10px #ccc;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
